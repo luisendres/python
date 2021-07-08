@@ -38,7 +38,18 @@ def iterateDictionary(some_list):
     for i in range(0,len(some_list)):
         for key, val in some_list[i].items():
             print(key, "-",val)
+            
 iterateDictionary(students)
+
+#                                                   Another way to do it 
+# def iterateDictionary(some_list):
+#     for i in range(0,len(some_list)):
+#         output = ""
+#         for key,val in some_list[i].items():
+#             output += f" {key} - {val},"
+#         print(output)
+
+# iterateDictionary(students)
 
 
 # should output: (it's okay if each key-value pair ends up on 2 separate lines;
@@ -56,20 +67,26 @@ def iterateDictionary2(key_name, some_list):
 iterateDictionary2('first_name',students)
 iterateDictionary2('last_name',students)
 
+#                                                   Another way to do it 
+# def iterateDictionary2(key_name, some_list):
+#     for key,val in some_list[i].items():
+#         if key == key_name:
+#             print(val)
+
+
 #4 ------------------------------------------------------------------------ITERATE THOUGH A DICTIONARY WITH LIST VALUES------------------------------------------------------------------------
 dojo = {
     'locations': ['San Jose', 'Seattle', 'Dallas', 'Chicago', 'Tulsa', 'DC', 'Burbank'],
     'instructors': ['Michael', 'Amy', 'Eduardo', 'Josh', 'Graham', 'Patrick', 'Minh', 'Devon']
 }
 
-def printInfo(some_dict):
-    counter = 0
-    for i in some_dict:
-        print(i)
-        for j in range(0,len(some_dict[i])):
-            print(some_dict[i][j])
+# def printInfo(some_dict):
+#     for i in some_dict:
+#         print(i)
+#         for j in range(0,len(some_dict[i])):
+#             print(some_dict[i][j])
             
-printInfo(dojo)
+# printInfo(dojo)
 # # output:
 # 7 LOCATIONS
 # San Jose
@@ -89,3 +106,14 @@ printInfo(dojo)
 # Patrick
 # Minh
 # Devon
+
+
+#                                                   Another way to do it
+# def printInfo(some_dict):
+#     for key, val in some_dict.items():
+#         print("--------------")
+#         print(f"{len(val)} {key.upper()}")
+#         for i in range(0, len(val)):
+#             print(val[i])
+            
+# printInfo(dojo)
