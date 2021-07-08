@@ -1,7 +1,7 @@
 class BankAccount:
 # don't forget to add some default values for these parameters!
     all_accounts = []
-    def __init__(self,int_rate = .01, balance = 0):
+    def __init__(self,int_rate = 1.01, balance = 0):
         self.int_rate = int_rate
         self.balance = balance
         BankAccount.all_accounts.append(self)
@@ -25,8 +25,9 @@ class BankAccount:
 
     def yield_interest(self):
         if BankAccount.is_positive(self.balance):
-            temp = self.balance * self.int_rate
-            self.balance += temp
+            # temp = self.balance * self.int_rate
+            # self.balance += temp
+            self.balance *= self.int_rate
         # print(f"Interest: ${temp}")
         # print(f"Interest: ${self.balance}")
         return self
