@@ -1,0 +1,7 @@
+table, th, tr, td {
+    outline: 2px solid black;
+}
+table {
+    height: 200px;
+    width: 500px;
+}

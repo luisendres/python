@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Full Name</th>
+        </tr>
+        {% for i in range(0,(users|length -1))%}
+        <tr>
+            <td>{{(users[i]['first_name'])}}</td>
+            <td>{{(users[i]['last_name'])}}</td>
+            <td>{{('{} {}'.format(users[i]['first_name'], users[i]['last_name']))}}</td>
+            <!-- <td>{{(users[i]['first_name'] + "" + (users[i]['last_name'])}}</td> -->
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
