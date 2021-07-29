@@ -1,20 +1,20 @@
-from flask import Flask  # Import Flask to allow us to create our app
+from flask import Flask, render_template  # Import Flask to allow us to create our app #added render_template
 app = Flask(__name__)    # Create a new instance of the Flask class called "app"
-@app.route('/')          # The "@" decorator associates this route with the function immediately following
-def hello_world():
-    return 'Hello World!'  # Return the string 'Hello World!' as a response
+# @app.route('/')          # The "@" decorator associates this route with the function immediately following
+# def hello_world():
+#     return render_template('index.html', phrase = "hello", times = 5)  # we'll return the result of the render_template method, passing in the name of our HTML file
 
-@app.route('/dojo')
-def success():
-    return "Dojo!"
+# @app.route('/dojo')
+# def success():
+#     return "Dojo!"
 
-@app.route('/say/<name>') #for a route '/hello/___' anything after '/hello/' gets passed as a variable 'name'
-def hello(name):
-    return f"Hi {name}!"
+# @app.route('/say/<name>') #for a route '/hello/___' anything after '/hello/' gets passed as a variable 'name'
+# def hello(name):
+#     return f"Hi {name}!"
 
-@app.route('/repeat/<int:number>/<word>')
-def cycle(number, word):
-    return number * f"{word} "
+# @app.route('/repeat/<int:number>/<word>')
+# def cycle(number, word):
+#     return number * f"{word} "
 
 # @app.route('/hello/<name>') # for a route '/hello/____' anything after '/hello/' gets passed as a variable 'name'
 # def hello(name):
@@ -26,6 +26,19 @@ def cycle(number, word):
 #     print(username)
 #     print(id)
 #     return "username: " + username + ", id: " + id
+
+
+@app.route('/lists')
+def render_lists():
+    # Soon enough, we'll get data from a database, but for now, we're hard coding data
+    student_info = [
+        {'name' : 'Michael', 'age' : 35},
+        {'name' : 'John', 'age' : 30 },
+        {'name' : 'Mark', 'age' : 25},
+        {'name' : 'KB', 'age' : 27}
+    ]
+    return render_template("index.html", random_numbers = [3,1,5], students = student_info)
+
 
 
 

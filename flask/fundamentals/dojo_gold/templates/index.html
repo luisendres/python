@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- local css -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="count">
+        <p>Your Gold: {{session['gold']}}</p>
+        <!-- <input type="textbox" name="" id="show"> -->
+    </div>
+    <div class="wrapper">
+        <div class="building">
+            <form action="/process_money" method="post">
+                <input type="hidden" name="building" value="Farm" />
+                <input type="submit" value="Find Gold!"/>
+            </form>
+        </div>
+        <div class="building">
+            <form action="/process_money" method="post">
+                <input type="hidden" name="building" value="Cave" />
+                <input type="submit" value="Find Gold!"/>
+            </form>
+        </div>
+        <div class="building">
+            <form action="/process_money" method="post">
+                <input type="hidden" name="building" value="House" />
+                <input type="submit" value="Find Gold!"/>
+            </form>
+        </div>
+        <div class="building">
+            <form action="/process_money" method="post">
+                <input type="hidden" name="building" value="Casino" />
+                <input type="submit" value="Find Gold!"/>
+            </form>
+        </div>
+    </div>
+    <p>Activities:</p>
+    <!-- <textarea id="w3review" name="w3review" rows="4" cols="50">{{session['activity']}}</textarea> -->
+    <p name="w3review">{{session['activity']}}</p>
+    <a href="/restart"><button>Restart</button></a>
+</body>
+</html>

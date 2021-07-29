@@ -1,0 +1,51 @@
+INSERT INTO dojos (name, created_at, updated_at) 
+VALUES ("Dojo Yellow", NOW(),NOW());
+INSERT INTO dojos (name, created_at, updated_at) 
+VALUES ("Dojo Red", NOW(),NOW());
+INSERT INTO dojos (name, created_at, updated_at) 
+VALUES ("Dojo Black", NOW(),NOW());
+
+DELETE FROM dojos WHERE id = 1;
+DELETE FROM dojos WHERE id = 2;
+DELETE FROM dojos WHERE id = 3;
+
+INSERT INTO dojos (name, created_at, updated_at) 
+VALUES ("Dojo White", NOW(),NOW());
+INSERT INTO dojos (name, created_at, updated_at) 
+VALUES ("Dojo Green", NOW(),NOW());
+INSERT INTO dojos (name, created_at, updated_at) 
+VALUES ("Dojo Blue", NOW(),NOW());
+
+INSERT INTO ninjas (first_name, last_name, age, dojos_id, created_at, updated_at) 
+VALUES ("Luis","Endres", 26, 4, NOW(),NOW());
+INSERT INTO ninjas (first_name, last_name, age, dojos_id, created_at, updated_at) 
+VALUES ("John","Doe", 100, 4, NOW(),NOW());
+INSERT INTO ninjas (first_name, last_name, age, dojos_id, created_at, updated_at) 
+VALUES ("Jane","Doe", 50, 4, NOW(),NOW());
+
+INSERT INTO ninjas (first_name, last_name, age, dojos_id, created_at, updated_at) 
+VALUES ("Ron","Phan", 26, 5, NOW(),NOW());
+INSERT INTO ninjas (first_name, last_name, age, dojos_id, created_at, updated_at) 
+VALUES ("Candy","Cane", 26, 5, NOW(),NOW());
+INSERT INTO ninjas (first_name, last_name, age, dojos_id, created_at, updated_at) 
+VALUES ("Mr","Bubbles", 26, 5, NOW(),NOW());
+
+INSERT INTO ninjas (first_name, last_name, age, dojos_id, created_at, updated_at) 
+VALUES ("Darth","Vader", 100, 6, NOW(),NOW());
+INSERT INTO ninjas (first_name, last_name, age, dojos_id, created_at, updated_at) 
+VALUES ("Han","Solo", 40, 6, NOW(),NOW());
+INSERT INTO ninjas (first_name, last_name, age, dojos_id, created_at, updated_at) 
+VALUES ("Luke","Skywalker", 30, 6, NOW(),NOW());
+
+select * from dojos;
+select * from ninjas;
+
+select * from ninjas 
+where dojos_id = 4;
+select * from ninjas 
+where dojos_id = 6;
+
+select first_name, last_name, name
+from ninjas
+join dojos on dojos.id = ninjas.dojos_id
+where ninjas.id = 9;

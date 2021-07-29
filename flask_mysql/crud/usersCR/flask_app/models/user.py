@@ -22,8 +22,34 @@ class user:
             users.append( cls(user) )
         return users
 
-# ... other class methods
-    # class method to save our friend to the database
+    @classmethod
+    def get_one(cls, id):
+        query = "SELECT * FROM user WHERE id = %(id)s;"
+        data = {
+            "id": id
+        }
+        # make sure to call the connectToMySQL function with the schema you are targeting.
+        result = connectToMySQL('users_crud').query_db(query, data)
+        if len (result) > 0 :
+            return result[0]
+        else:
+            return False
+
+    @classmethod
+    def delete_one(cls, id):
+        query = "DELETE FROM user WHERE id = %(id)s;"
+        data = {
+        'id': id
+        }
+        return connectToMySQL('users_crud').query_db(query, data)
+
+    @classmethod
+    def update(cls, data):
+        query = "UPDATE user SET first_name =%(first_name)s, last_name= %(last_name)s, email= %(email)s ,updated_at = NOW() WHERE id = %(id)s;"
+        # make sure to call the connectToMySQL function with the schema you are targeting.
+        return connectToMySQL('users_crud').query_db(query, data)
+
+    # class method to save our user to the database
     @classmethod
     def save(cls, data ):
         query = "INSERT INTO user (first_name, last_name, email) VALUES ( %(first_name)s , %(last_name)s , %(email)s)"
